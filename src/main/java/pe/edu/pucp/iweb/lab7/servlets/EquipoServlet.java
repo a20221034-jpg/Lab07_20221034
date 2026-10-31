@@ -56,9 +56,7 @@ public class EquipoServlet extends HttpServlet {
         }
     }
 
-    /**
-     * Ejercicio 3: listado con combobox.
-     */
+    /** Ejercicio 3: listado con combobox. */
     private void listar(HttpServletRequest request, HttpServletResponse response, int idSede)
             throws ServletException, IOException {
 
@@ -72,15 +70,13 @@ public class EquipoServlet extends HttpServlet {
         request.getRequestDispatcher("equipos.jsp").forward(request, response);
     }
 
-    /**
-     * Ejercicio 4: reporte PDF descargable.
-     */
+    /** Ejercicio 4: reporte PDF descargable. */
+
     private void generarPdf(HttpServletRequest request, HttpServletResponse response, int idSede)
             throws IOException {
 
         ArrayList<EquipoRed> equipos = equipoDao.listarPorSede(idSede);
 
-        // Nombre de la sede y del archivo de descarga
         String nombreSede;
         String archivo;
         if (idSede == 0) {
@@ -111,7 +107,6 @@ public class EquipoServlet extends HttpServlet {
             doc.add(new Paragraph("Fecha de generacion: " + sdf.format(new Date())));
             doc.add(new Paragraph(" "));
 
-            // Tabla con las mismas columnas que la página
             PdfPTable tabla = new PdfPTable(6);
             tabla.setWidthPercentage(100);
 
@@ -136,7 +131,6 @@ public class EquipoServlet extends HttpServlet {
                 tabla.addCell(String.format(Locale.US, "%.2f", soporte));
             }
 
-            // Fila del total (ocupa las 5 primeras columnas)
             PdfPCell celdaTotal = new PdfPCell(new Phrase("TOTAL", fontCab));
             celdaTotal.setColspan(5);
             celdaTotal.setHorizontalAlignment(Element.ALIGN_RIGHT);
