@@ -1,0 +1,29 @@
+# Compilado Maven
+target/
+*.class
+
+# NetBeans
+nbproject/private/
+nbproject/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.settings/
+.classpath
+.project
+
+# VS Code
+.vscode/
+
+# Logs y temporales del SO
+*.log
+.DS_Store
+Thumbs.db
